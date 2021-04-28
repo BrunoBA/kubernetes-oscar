@@ -17,5 +17,9 @@ spec:
       containers:
         - name: backend-container
           image: brunoba93/oscar-api:7f39184
+          resources:
+            limits:
+              memory: 65Mi
+              cpu: 100m
           ports:
             - containerPort: 80
