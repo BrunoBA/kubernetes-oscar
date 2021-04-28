@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: brunoba93/oscar-frontend:bfe91b4
+          resources:
+            limits:
+              memory: 65Mi
+              cpu: 100m
+          ports:
+            - containerPort: 80
+              name: 'frontend-port'

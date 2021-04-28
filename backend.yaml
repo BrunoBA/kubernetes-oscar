@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: simple-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: simple-api
+  template:
+    metadata:
+      labels:
+        app: simple-api
+    spec:
+      containers:
+        - name: backend-container
+          image: brunoba93/oscar-api:7f39184
+          ports:
+            - containerPort: 80

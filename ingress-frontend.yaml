@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+  labels:
+    name: frontend-ingress
+spec:
+  rules:
+    - host: frontend.oscar.app.br
+      http:
+        paths:
+          - backend:
+              serviceName: frontend
+              servicePort: 80
