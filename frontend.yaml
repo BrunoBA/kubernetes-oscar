@@ -6,6 +6,10 @@ metadata:
     app: frontend
 spec:
   replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: frontend
@@ -16,11 +20,11 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: brunoba93/oscar-frontend:bfe91b4
+          image: brunoba93/oscar-frontend:c08a374
           resources:
             limits:
               memory: 65Mi
               cpu: 100m
           ports:
             - containerPort: 80
-              name: 'frontend-port'
+              name: "frontend-port"
